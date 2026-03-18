@@ -1,0 +1,198 @@
+<!DOCTYPE html> <!-- Indica al navegador que este documento usa HTML5 -->
+
+<html lang="es"> <!-- Inicio del documento HTML y define que el idioma principal es español -->
+
+<head> <!-- Inicio de la cabecera del documento, donde van metadatos, título y enlaces a estilos -->
+  <meta charset="UTF-8" /> <!-- Define la codificación de caracteres como UTF-8 para soportar acentos, eñes y símbolos -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Hace que la página sea responsive en celulares y tablets -->
+  <title>Red de Monitoreo Climático</title> <!-- Título que aparecerá en la pestaña del navegador -->
+
+  <!-- Enlace a Bootstrap 5 desde CDN para usar estilos y componentes prediseñados -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Enlace a tu archivo CSS local, donde van tus estilos personalizados -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Enlace a la librería AOS (Animate On Scroll) para animaciones cuando se hace scroll -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+</head> <!-- Fin de la cabecera -->
+
+<body> <!-- Inicio del cuerpo visible de la página -->
+
+ <!-- TOPBAR AZUL OSCURO -->
+ <!-- Esta sección crea una barra superior horizontal con fondo azul oscuro -->
+<div style="background-color: #003366; padding: 5px 20px; display: flex; align-items: center;"> <!-- Contenedor principal de la barra superior con Flexbox -->
+  
+  <!-- Contenedor para agrupar los logos alineados horizontalmente -->
+  <div style="display: flex; align-items: center; gap: 10px;"> <!-- Flexbox para colocar los logos en fila con separación de 10px -->
+    
+    <img src="logo_ucr.png" alt="Logo UCR" style="height: 40px;" /> <!-- Muestra el logo de la UCR con altura fija de 40px -->
+    <img src="logo1.png" alt="Logo 1" style="height: 40px;" /> <!-- Muestra un segundo logo con la misma altura -->
+    <img src="logo2.png" alt="Logo 2" style="height: 40px;" /> <!-- Muestra un tercer logo con la misma altura -->
+  </div>
+  
+  <!-- Contenedor de enlaces de navegación del lado derecho -->
+  <div style="margin-left: auto;"> <!-- Empuja este bloque hacia la derecha usando margen automático izquierdo -->
+    
+    <a href="#" style="color: white; margin-left: 15px;">Inicio</a> <!-- Enlace de texto blanco con separación izquierda -->
+    <a href="#" style="color: white; margin-left: 15px;">EN</a> <!-- Enlace para posible versión en inglés -->
+    <a href="#" style="color: white; margin-left: 15px;">Accesibilidad</a> <!-- Enlace relacionado con accesibilidad -->
+    <a href="#" style="color: white; margin-left: 15px;">Contacto</a> <!-- Enlace de contacto -->
+  </div>
+</div> <!-- Fin de la barra superior -->
+
+
+  <!-- Barra de navegación -->
+  <!-- Navbar principal del sitio usando Bootstrap -->
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm sticky-top bg-white" data-aos="fade-down"> 
+    <!-- 
+      navbar: componente de barra de navegación de Bootstrap
+      navbar-expand-lg: se expande completa en pantallas grandes y se colapsa en chicas
+      navbar-light: estilo claro para textos/iconos
+      shadow-sm: sombra ligera
+      sticky-top: se queda fija arriba al hacer scroll
+      bg-white: fondo blanco
+      data-aos="fade-down": animación de AOS al aparecer
+    -->
+
+    <div class="container"> <!-- Contenedor Bootstrap para centrar y limitar el ancho -->
+      
+      <a class="navbar-brand" href="index.html">Monitoreo Climático</a> 
+      <!-- Nombre o marca del sitio; al hacer clic vuelve a index.html -->
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <!-- 
+          Botón hamburguesa que aparece en pantallas pequeñas
+          data-bs-toggle="collapse": activa/desactiva el colapso
+          data-bs-target="#navbarNav": indica qué contenedor se colapsa
+        -->
+        <span class="navbar-toggler-icon"></span> <!-- Icono visual del botón hamburguesa -->
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- 
+          Contenedor de los enlaces del menú
+          collapse navbar-collapse: permite colapsarse en móvil
+          id="navbarNav": identificador que conecta con el botón de arriba
+        -->
+
+        <ul class="navbar-nav ms-auto">
+          <!-- 
+            Lista de enlaces del menú
+            navbar-nav: estilo de navegación Bootstrap
+            ms-auto: empuja los elementos hacia la derecha
+          -->
+
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li> <!-- Enlace a la página principal -->
+          <li class="nav-item"><a class="nav-link" href="datos1.html">Datos 1</a></li> <!-- Enlace a la sección de datos -->
+          <li class="nav-item"><a class="nav-link" href="conjuntos.html">Gráficas</a></li> <!-- Enlace a la página de gráficas -->
+          <li class="nav-item"><a class="nav-link" href="historicos.html">Historicos</a></li> <!-- Enlace a datos históricos -->
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li> <!-- Enlace a contacto -->
+        </ul>
+      </div>
+    </div>
+  </nav> <!-- Fin de la barra de navegación -->
+
+  <!-- Encabezado con imagen -->
+  <!-- Sección principal visual de la página con una imagen tipo banner -->
+  <header class="hero-header text-center" data-aos="zoom-in">
+    <!-- 
+      hero-header: clase personalizada, probablemente definida en styles.css
+      text-center: centra el contenido horizontalmente
+      data-aos="zoom-in": animación de entrada con efecto zoom
+    -->
+    <img src="encabezado_ucr.jpg" alt="Banner encabezado" class="img-fluid" />
+    <!-- 
+      Imagen principal del encabezado
+      img-fluid: hace que la imagen sea responsive y se adapte al ancho del contenedor
+    -->
+  </header> <!-- Fin del encabezado -->
+
+  <!-- Contenido principal estilo INECOL -->
+  <!-- Sección principal del contenido informativo -->
+  <main class="container-fluid cuerpo-inecol" data-aos="fade-up">
+    <!-- 
+      container-fluid: ocupa todo el ancho disponible
+      cuerpo-inecol: clase personalizada para estilos propios
+      data-aos="fade-up": animación al aparecer desde abajo
+    -->
+
+    <div class="row align-items-center">
+      <!-- 
+        row: fila Bootstrap
+        align-items-center: centra verticalmente los elementos dentro de la fila
+      -->
+
+      <div class="col-md-5 text-center" data-aos="fade-right">
+        <!-- 
+          col-md-5: columna de 5/12 en pantallas medianas o grandes
+          text-center: centra su contenido
+          data-aos="fade-right": animación desde la derecha
+        -->
+        <img src="colibri.png" alt="Colibrí" class="img-fluid colibri-img" />
+        <!-- 
+          Imagen del colibrí
+          img-fluid: responsive
+          colibri-img: clase personalizada para estilos específicos
+        -->
+      </div>
+
+      <div class="col-md-6 offset-md-1" data-aos="fade-left">
+        <!-- 
+          col-md-6: columna de 6/12
+          offset-md-1: deja un espacio de una columna a la izquierda
+          data-aos="fade-left": animación desde la izquierda
+        -->
+
+        <h2 class="titulo-inecol">Red de Monitoreo Climático</h2>
+        <!-- Título principal de la sección, con clase personalizada -->
+
+        <p class="texto-inecol">
+          <!-- Párrafo principal descriptivo del proyecto -->
+          La conformación del proyecto surgió del interés por monitorear variables climáticas de manera precisa y en tiempo real, utilizando tecnologías abiertas y accesibles.<br /><br />
+          <!-- 
+            Texto descriptivo del origen del proyecto
+            <br /><br /> agrega dos saltos de línea para separar visualmente párrafos
+          -->
+
+          Este esfuerzo colaborativo busca generar información confiable para la toma de decisiones en el ámbito ambiental, facilitando estudios de temperatura y humedad mediante sensores distribuidos y plataformas visuales modernas.<br /><br />
+          <!-- Segundo bloque del texto, enfocado en el propósito y utilidad -->
+
+          El proyecto se implementá en colaboración con el Instituto Tecnologico Superior de Xalapa y la Universidad de Costa Rica, siendo una herramienta educativa y científica de gran valor.
+          <!-- Tercer bloque del texto, mencionando las instituciones participantes -->
+        </p>
+      </div>
+    </div>
+  </main> <!-- Fin del contenido principal -->
+
+  <!-- Footer -->
+  <!-- Pie de página del sitio -->
+  <footer class="text-center py-4 bg-light text-muted" data-aos="fade-up">
+    <!-- 
+      text-center: centra el texto
+      py-4: padding vertical
+      bg-light: fondo claro
+      text-muted: texto en tono gris tenue
+      data-aos="fade-up": animación de entrada
+    -->
+    &copy; 2025 Universidad de Costa Rica - Proyecto de Monitoreo Climático
+    <!-- Texto del pie de página con símbolo de copyright -->
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Script de Bootstrap que habilita componentes interactivos como el menú responsive -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script de la librería AOS para animaciones al hacer scroll -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    // Inicializa la librería AOS para activar las animaciones declaradas con data-aos
+    AOS.init({
+      duration: 1000, // Duración de cada animación en milisegundos (1000 ms = 1 segundo)
+      once: true // Hace que la animación ocurra solo una vez y no se repita al volver a hacer scroll
+    });
+  </script>
+</body> <!-- Fin del cuerpo visible -->
+
+</html> <!-- Fin del documento HTML -->

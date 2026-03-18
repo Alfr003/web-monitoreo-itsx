@@ -1,1 +1,1 @@
-# web-monitoreo-itsx
+# Monitoreo-Climatico-ITSX-

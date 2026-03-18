@@ -1,0 +1,156 @@
+/* ----------------------------------------- */
+/* Estilos globales del cuerpo de la página */
+/* ----------------------------------------- */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define la familia tipográfica principal del sitio; intenta usar Segoe UI y si no existe prueba con Tahoma, Geneva, Verdana o una sans-serif genérica */
+  background-color: #f8f9fa; /* Asigna un color de fondo gris muy claro al cuerpo completo de la página */
+  color: #212529; /* Define el color principal del texto en un gris oscuro para buena legibilidad */
+  margin: 0; /* Elimina el margen por defecto que los navegadores suelen aplicar al body */
+}
+
+html {
+  scroll-behavior: smooth; /* Hace que el desplazamiento hacia anclas o secciones internas sea suave en lugar de brusco */
+}
+
+/* ----------------------------------------- */
+/* Encabezado superior institucional (barra azul) */
+/* ----------------------------------------- */
+.topbar {
+  background-color: rgba(0, 51, 102, 1); /* Asigna un azul institucional sólido usando formato RGBA: rojo 0, verde 51, azul 102, opacidad 1 */
+  color: white; /* Define el color del texto dentro de la barra superior como blanco */
+  font-size: 14px; /* Establece un tamaño de fuente pequeño para el contenido del topbar */
+  padding: 8px 0; /* Agrega espaciado interno vertical de 8px arriba y abajo, y 0 a los lados */
+  transition: background-color 0.3s ease; /* Aplica una transición suave de 0.3 segundos cuando cambie el color de fondo */
+}
+
+.topbar.scrolled {
+  background-color: rgba(0, 51, 102, 0.5); /* Cuando el elemento tenga también la clase scrolled, el azul se vuelve semitransparente */
+}
+
+/* ----------------------------------------- */
+/* Enlaces del encabezado superior */
+/* ----------------------------------------- */
+.topbar a {
+  color: rgba(255, 255, 255, 1); /* Pinta los enlaces del topbar en blanco sólido */
+  margin-left: 15px; /* Deja una separación de 15px hacia la izquierda entre cada enlace */
+  text-decoration: none; /* Elimina el subrayado por defecto de los enlaces */
+  font-weight: 500; /* Asigna un grosor de fuente medio para que los enlaces se vean más firmes */
+}
+
+.topbar a:hover {
+  text-decoration: underline; /* Al pasar el mouse encima del enlace, aparece subrayado */
+  color: rgba(255, 255, 255, 0.75); /* Cambia el blanco a una versión ligeramente más transparente al hacer hover */
+}
+
+/* ----------------------------------------- */
+/* Barra de navegación principal */
+/* ----------------------------------------- */
+.navbar-brand {
+  font-weight: bold; /* Hace que el nombre o marca principal del navbar aparezca en negrita */
+  color: #003366 !important; /* Fuerza el color azul oscuro institucional, incluso si Bootstrap intenta poner otro color */
+  font-size: 20px; /* Asigna un tamaño de fuente mediano para el texto de la marca */
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500; /* Da un grosor medio a los enlaces del menú de navegación */
+  color: #003366 !important; /* Fuerza el color azul oscuro para todos los enlaces del navbar */
+  margin-left: 15px; /* Separa visualmente cada enlace del menú */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #007bff !important; /* Cambia el color del enlace a azul claro cuando el usuario pasa el mouse */
+}
+
+/* ----------------------------------------- */
+/* Sección de encabezado grande con imagen */
+/* ----------------------------------------- */
+.hero-header {
+  background: linear-gradient(to bottom, #0074b7, #eaf9ff); /* Crea un fondo degradado vertical desde azul hacia un tono casi blanco */
+  padding: 0; /* Elimina el espacio interno para que la imagen encaje al ras */
+}
+
+.hero-header img {
+  width: 100%; /* Hace que la imagen ocupe todo el ancho del contenedor */
+  height: auto; /* Ajusta la altura automáticamente manteniendo la proporción original */
+  max-height: 300px; /* Limita la altura máxima de la imagen a 300px */
+  object-fit: cover; /* Hace que la imagen cubra el contenedor recortándose si es necesario, sin deformarse */
+}
+
+/* ----------------------------------------- */
+/* Estilo tipo INECOL para cuerpo con imagen y texto */
+/* ----------------------------------------- */
+.cuerpo-inecol {
+  background-image: url('fondo-hojas-inecol.jpg'); /* Coloca una imagen de fondo con hojas tipo estilo INECOL */
+  background-size: cover; /* Hace que la imagen de fondo cubra toda el área del contenedor */
+  background-position: center; /* Centra la imagen de fondo horizontal y verticalmente */
+  background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+  padding: 60px 5% 60px 5%; /* Agrega padding: 60px arriba, 5% derecha, 60px abajo y 5% izquierda */
+  color: #333; /* Define un gris oscuro para el texto principal de esta sección */
+  font-family: 'Georgia', serif; /* Cambia la fuente a Georgia o serif para dar un estilo más elegante y formal */
+  font-size: 18px; /* Asigna un tamaño de texto cómodo y legible */
+  line-height: 1.7; /* Incrementa el espacio vertical entre líneas para mejorar legibilidad */
+  animation: fadeIn 1.2s ease-in-out both; /* Aplica la animación fadeIn durante 1.2 segundos con entrada y salida suave; both mantiene estado inicial y final */
+}
+
+.cuerpo-inecol .titulo-inecol {
+  font-family: 'Georgia', serif; /* Usa la misma familia elegante para el título */
+  font-size: 32px; /* Hace el título considerablemente grande */
+  color: #00695c; /* Usa un verde institucional suave para el título */
+  font-weight: 600; /* Aplica un grosor semi-negrita */
+  margin-bottom: 20px; /* Separa el título del contenido que viene debajo */
+  animation: slideUp 1.2s ease-in-out both; /* Anima el título con un efecto de subida al aparecer */
+}
+
+.cuerpo-inecol .texto-inecol {
+  font-size: 18px; /* Mantiene un tamaño medio para el párrafo */
+  line-height: 1.7; /* Mejora la legibilidad con un espaciado amplio entre líneas */
+  background-color: rgba(255, 255, 255, 0); /* Deja el fondo completamente transparente */
+  padding: 25px; /* Agrega espacio interno alrededor del texto */
+  border-radius: 8px; /* Redondea las esquinas del bloque de texto */
+  box-shadow: none; /* Asegura que el bloque no tenga sombra */
+  text-align: justify; /* Justifica el texto para que se vea alineado a ambos lados */
+  animation: fadeIn 1.4s ease-in-out both; /* Hace aparecer el texto con una animación suave */
+}
+
+/* Imagen del colibrí */
+.colibri-img {
+  max-height: 350px; /* Limita la altura máxima del colibrí para que no se vea demasiado grande */
+  width: auto; /* Mantiene la proporción natural de la imagen */
+  margin-top: 20px; /* Deja espacio superior respecto al elemento anterior */
+  animation: fadeIn 1.5s ease-in-out both; /* Aplica una animación de aparición al colibrí */
+}
+
+/* ----------------------------------------- */
+/* Animaciones suaves estilo INECOL */
+/* ----------------------------------------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Estado inicial: completamente invisible */
+    transform: translateY(20px); /* Estado inicial: desplazado 20px hacia abajo */
+  }
+  to {
+    opacity: 1; /* Estado final: completamente visible */
+    transform: translateY(0); /* Estado final: vuelve a su posición original */
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0; /* Inicia invisible */
+    transform: translateY(40px); /* Inicia más abajo, con un desplazamiento de 40px */
+  }
+  to {
+    opacity: 1; /* Termina completamente visible */
+    transform: translateY(0); /* Termina en su posición normal */
+  }
+}
+
+/* ----------------------------------------- */
+/* Pie de página */
+/* ----------------------------------------- */
+footer {
+  background-color: #f1f1f1; /* Asigna un fondo gris claro al pie de página */
+  font-size: 14px; /* Usa un tamaño de letra pequeño para el footer */
+  color: #555; /* Asigna un gris medio oscuro al texto del footer */
+  border-top: 1px solid #ddd; /* Dibuja una línea superior gris clara para separar el footer del contenido */
+}

@@ -1,0 +1,88 @@
+/* ========================= */
+/* Estilos generales de contacto */
+/* ========================= */
+body {
+  background-color: #f4f6f9; /* Fondo gris claro */
+}
+
+.topbar {
+  background-color: #003366;
+  color: white;
+  font-size: 14px;
+  padding: 8px 20px;
+}
+
+.topbar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.topbar a:hover {
+  text-decoration: underline;
+}
+
+.hero-header {
+  background: linear-gradient(to bottom, #0074b7, #eaf9ff);
+  padding: 0;
+}
+
+.hero-header img {
+  width: 100%;
+  height: auto;
+}
+
+.seccion-estudio-blanco {
+  background-color: rgba(0, 0, 51, 0.5);
+  color: white;
+  padding: 40px 20px;
+  border-radius: 12px;
+  margin-top: 30px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.seccion-estudio-blanco .titulo-estudio {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff;
+}
+
+.seccion-estudio-blanco .texto-estudio {
+  font-size: 1.05rem;
+  text-align: justify;
+  color: #f0f0f0;
+  margin-bottom: 30px;
+}
+
+.row {
+  margin-top: 30px;
+}
+
+.row h3 {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.row p {
+  color: #ffffff;
+}
+
+/* Enlaces de correo */
+a {
+  color: #ffcc00;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background-color: #f1f1f1;
+  font-size: 14px;
+  color: #555;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}

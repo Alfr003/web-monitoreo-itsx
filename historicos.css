@@ -1,0 +1,296 @@
+/* ================== FONDO GENERAL ================== */
+
+/* Estilos generales del cuerpo de la página */
+body {
+
+  /* Imagen de fondo de la página */
+  background: url("fondo_tabla.jpg") no-repeat center center fixed;
+
+  /* Ajusta la imagen para que cubra toda la pantalla */
+  background-size: cover;
+
+  /* Hace que el fondo permanezca fijo al hacer scroll */
+  background-attachment: fixed;
+
+  /* Elimina márgenes por defecto del navegador */
+  margin: 0;
+
+  /* Elimina padding por defecto */
+  padding: 0;
+
+  /* Fuente principal utilizada en la página */
+  font-family: "Segoe UI", sans-serif;
+
+  /* Color de texto principal */
+  color: white;
+}
+
+
+/* ================== TARJETAS DIFUMINADAS ================== */
+
+/* Estilos comunes para las secciones principales */
+.seccion-estudio-blanco,
+.seccion-estudio-gris {
+
+  /* Fondo azul oscuro con transparencia */
+  background-color: rgba(0, 0, 51, 0.5);
+
+  /* Color del texto */
+  color: white;
+
+  /* Espacio interno dentro de la tarjeta */
+  padding: 30px;
+
+  /* Bordes redondeados */
+  border-radius: 14px;
+
+  /* Margen vertical y centrado automático */
+  margin: 20px auto;
+
+  /* Ancho del contenedor */
+  width: 90%;
+
+  /* Efecto vidrio difuminado */
+  backdrop-filter: blur(6px);
+
+  /* Sombra suave para dar profundidad */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+
+  /* Inicialmente invisible (para animación de entrada) */
+  opacity: 0;
+
+  /* Desplazamiento inicial hacia abajo */
+  transform: translateY(40px);
+
+  /* Transición suave para animaciones */
+  transition: all 0.9s ease;
+}
+
+
+/* Clase que activa la animación de aparición */
+.seccion-visible {
+
+  /* Hace visible el elemento */
+  opacity: 1 !important;
+
+  /* Regresa el elemento a su posición original */
+  transform: translateY(0px) !important;
+}
+
+
+/* ================== TÍTULOS ================== */
+
+/* Estilo del título principal de la sección */
+.titulo-estudio {
+
+  /* Texto en negrita fuerte */
+  font-weight: 800;
+
+  /* Tamaño del texto */
+  font-size: 1.6rem;
+
+  /* Espacio inferior */
+  margin-bottom: 10px;
+
+  /* Centra el texto */
+  text-align: center;
+
+  /* Color del texto */
+  color: white;
+}
+
+
+/* Estilo del texto descriptivo */
+.texto-estudio {
+
+  /* Tamaño del texto */
+  font-size: 1.05rem;
+
+  /* Justificación del texto */
+  text-align: justify;
+
+  /* Color ligeramente gris para mejor lectura */
+  color: #f0f0f0;
+}
+
+
+/* ================== CONTENEDOR FILTROS ================== */
+
+/* Estilos compartidos entre el panel de filtros y el panel de descargas */
+.filtros-glass,
+.descargas-glass {
+
+  /* Fondo blanco semitransparente */
+  background: rgba(255, 255, 255, 0.12);
+
+  /* Borde blanco transparente */
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  /* Bordes redondeados */
+  border-radius: 14px;
+
+  /* Espaciado interno */
+  padding: 15px 18px;
+
+  /* Efecto vidrio */
+  backdrop-filter: blur(8px);
+
+  /* Sombra para profundidad */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Ajusta el tamaño del texto de los labels dentro del panel de filtros */
+.filtros-glass label {
+  font-size: 0.9rem;
+}
+
+
+/* Hace los botones de descarga más visibles */
+.descargas-glass button {
+  font-weight: 700;
+}
+
+
+/* ================== TABLA HISTÓRICA ================== */
+
+/* Contenedor visual de la tabla */
+.glass-table {
+
+  /* Fondo azul oscuro transparente */
+  background-color: rgba(0, 0, 51, 0.45);
+
+  /* Bordes redondeados */
+  border-radius: 14px;
+
+  /* Espacio interno */
+  padding: 10px;
+
+  /* Efecto de vidrio */
+  backdrop-filter: blur(6px);
+
+  /* Sombra */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Estilo base de la tabla */
+#tablaHistoricos {
+
+  /* Fondo transparente */
+  background-color: transparent;
+
+  /* Ancho completo */
+  width: 100%;
+
+  /* Elimina separación entre bordes */
+  border-collapse: collapse;
+}
+
+
+/* Encabezado de la tabla */
+#tablaHistoricos thead {
+
+  /* Azul institucional translúcido */
+  background-color: rgba(13, 71, 161, 0.85);
+
+  /* Texto blanco */
+  color: white;
+}
+
+
+/* Celdas de la tabla */
+#tablaHistoricos th,
+#tablaHistoricos td {
+
+  /* Fondo blanco transparente */
+  background-color: rgba(255, 255, 255, 0.12);
+
+  /* Color del texto */
+  color: white;
+
+  /* Tamaño de texto */
+  font-size: 0.9rem;
+
+  /* Espaciado interno */
+  padding: 10px;
+
+  /* Centra contenido horizontalmente */
+  text-align: center;
+
+  /* Centra contenido verticalmente */
+  vertical-align: middle;
+
+  /* Borde suave */
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+
+/* Efecto hover en filas */
+#tablaHistoricos tbody tr:hover {
+
+  /* Resalta la fila cuando se pasa el mouse */
+  background-color: rgba(33, 150, 243, 0.25);
+}
+
+
+/* ================== BOTÓN CARGAR MÁS ================== */
+
+/* Estilo del botón "Cargar más" (si se implementa) */
+#btnCargarMas {
+
+  /* Texto en negrita */
+  font-weight: 700;
+
+  /* Bordes redondeados tipo cápsula */
+  border-radius: 20px;
+
+  /* Espaciado interno */
+  padding: 8px 22px;
+}
+
+
+/* ================== ESTADO / MENSAJES ================== */
+
+/* Estilo del texto de estado del sistema */
+#estado {
+
+  /* Tamaño de fuente pequeño */
+  font-size: 0.85rem;
+
+  /* Color blanco semitransparente */
+  color: rgba(255, 255, 255, 0.75);
+}
+
+
+/* ================== FOOTER ================== */
+
+/* Estilos del pie de página */
+footer {
+
+  /* Texto pequeño */
+  font-size: 0.85rem;
+
+  /* Color gris claro */
+  color: #ccc;
+}
+
+
+/* ================== RESPONSIVE ================== */
+
+/* Ajustes para pantallas pequeñas (tablets y celulares) */
+@media (max-width: 768px) {
+
+  /* Hace que los paneles ocupen todo el ancho */
+  .filtros-glass,
+  .descargas-glass {
+    width: 100%;
+  }
+
+  /* Reduce tamaño de texto y padding de la tabla */
+  #tablaHistoricos th,
+  #tablaHistoricos td {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+}

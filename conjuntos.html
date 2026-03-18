@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<!-- Define que el documento usa el estándar HTML5 -->
+
+<html lang="es">
+<!-- Inicio del documento HTML y define que el idioma principal es español -->
+
+<head>
+  <!-- Sección de metadatos del documento -->
+
+  <meta charset="UTF-8" />
+  <!-- Define la codificación UTF-8 para soportar acentos y caracteres especiales -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Permite que la página sea responsive en dispositivos móviles -->
+
+  <title>Gráficas - Monitoreo Climático</title>
+  <!-- Título que aparece en la pestaña del navegador -->
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Hoja de estilos global del sitio -->
+
+  <link rel="stylesheet" href="Conjuntos.css" />
+  <!-- Hoja de estilos específica para la página de gráficas -->
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <!-- Librería AOS (Animate On Scroll) para animaciones al hacer scroll -->
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Framework Bootstrap para diseño responsive y componentes UI -->
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Librería para crear gráficas dinámicas con JavaScript -->
+
+  <!-- Fondo general (igual que Datos 1) -->
+  <style>
+
+    body {
+      /* Imagen de fondo fija para toda la página */
+      background: url("fondo_tabla.jpg") no-repeat center center fixed;
+
+      /* Ajusta la imagen para cubrir toda la pantalla */
+      background-size: cover;
+
+      /* Hace que el fondo permanezca fijo al hacer scroll */
+      background-attachment: fixed;
+    }
+
+    /* Contenedores tipo tarjetas difuminadas (igual que Datos 1) */
+    .seccion-estudio-blanco,
+    .seccion-estudio-gris {
+
+      /* Fondo azul oscuro semitransparente */
+      background-color: rgba(0, 0, 51, 0.5);
+
+      /* Texto blanco para contraste */
+      color: white;
+
+      /* Espaciado interno */
+      padding: 30px;
+
+      /* Bordes redondeados */
+      border-radius: 12px;
+
+      /* Margen vertical y centrado horizontal */
+      margin: 20px auto;
+
+      /* Ancho relativo */
+      width: 90%;
+
+      /* Efecto glassmorphism (desenfoque detrás) */
+      backdrop-filter: blur(3px);
+
+      /* Sombra suave para efecto flotante */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
+      /* Inicialmente invisible para animación */
+      opacity: 0;
+
+      /* Posición desplazada hacia abajo */
+      transform: translateY(40px);
+
+      /* Transición suave */
+      transition: all 1s ease;
+    }
+
+    /* Clase que se activa cuando aparece en pantalla */
+    .seccion-visible {
+      opacity: 1 !important;
+      transform: translateY(0px) !important;
+    }
+
+    /* Estilo de títulos */
+    h2, h3 {
+      color: white;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Topbar -->
+  <div class="topbar d-flex justify-content-between align-items-center px-4">
+
+    <!-- Logo institucional -->
+    <div>
+      <img src="logo_ucr.png" height="40" alt="Logo UCR" />
+      <!-- Logo principal de la Universidad de Costa Rica -->
+    </div>
+
+    <!-- Menú superior -->
+    <div class="text-end">
+      <a href="index.html">Inicio</a>
+      <!-- Enlace a página principal -->
+
+      <a href="#">EN</a>
+      <!-- Posible enlace para versión en inglés -->
+
+      <a href="#">Accesibilidad</a>
+      <!-- Enlace de accesibilidad -->
+
+      <a href="#">Contacto</a>
+      <!-- Enlace de contacto -->
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm sticky-top bg-white">
+
+    <div class="container">
+
+      <a class="navbar-brand" href="index.html">
+        Monitoreo Climático
+      </a>
+      <!-- Nombre del proyecto -->
+
+      <!-- Botón hamburguesa para móviles -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Menú colapsable -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav ms-auto">
+
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Inicio</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="datos1.html">Datos 1</a>
+          </li>
+
+          <!-- ✅ activo aquí -->
+          <li class="nav-item">
+            <a class="nav-link active" href="conjuntos.html">
+              Gráficas
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="historicos.html">Historicos</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="contacto.html">Contacto</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Encabezado -->
+  <header class="hero-header text-center">
+
+    <!-- Imagen banner de la página -->
+    <img src="Encabezado_Graficas.jpg" alt="Encabezado gráficas" class="img-fluid" />
+
+  </header>
+
+  <!-- Introducción -->
+  <section class="seccion-estudio-blanco py-5">
+
+    <div class="container">
+
+      <h2 class="titulo-estudio text-center mb-4">
+        Gráficas en tiempo real (Zona Z1)
+      </h2>
+
+      <p class="texto-estudio">
+
+        <!-- Explicación de la sección -->
+        Visualización de temperatura y humedad con datos recientes de la estación. 
+        Las gráficas se actualizan automáticamente y muestran el comportamiento 
+        de las últimas lecturas registradas.
+
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- Gráficas -->
+  <section class="seccion-estudio-gris py-5">
+
+    <div class="container">
+
+      <div class="row g-4">
+
+        <!-- ================= TEMPERATURA ================= -->
+        <div class="col-lg-6" data-aos="fade-up">
+
+          <div class="grafica-card">
+
+            <div class="grafica-header">
+
+              <h3 class="text-center mb-2">
+                Temperatura (últimas lecturas)
+              </h3>
+
+              <!-- Valor actual mostrado al lado -->
+              <div class="valor-actual-wrap">
+
+                <span class="valor-actual-num" id="tempActual">
+                  --
+                </span>
+                <!-- JS escribirá aquí el valor actual -->
+
+                <span class="valor-actual-unit">
+                  °C
+                </span>
+
+              </div>
+            </div>
+
+            <div class="grafica-body">
+
+              <!-- Canvas donde Chart.js dibuja la gráfica -->
+              <canvas id="graficaTempZ1"></canvas>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= HUMEDAD ================= -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="grafica-card">
+
+            <div class="grafica-header">
+
+              <h3 class="text-center mb-2">
+                Humedad (últimas lecturas)
+              </h3>
+
+              <!-- Valor actual mostrado al lado -->
+              <div class="valor-actual-wrap">
+
+                <span class="valor-actual-num" id="humActual">
+                  --
+                </span>
+                <!-- JS escribe aquí el valor actual -->
+
+                <span class="valor-actual-unit">
+                  %
+                </span>
+
+              </div>
+
+            </div>
+
+            <div class="grafica-body">
+
+              <!-- Canvas para gráfica de humedad -->
+              <canvas id="graficaHumZ1"></canvas>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ================= RESUMEN ================= -->
+      <div class="resumen-card mt-4" data-aos="fade-up">
+
+        <h3 class="text-center mb-3">
+          Resumen
+        </h3>
+
+        <p id="analisis" class="text-center mb-0">
+          Cargando datos…
+        </p>
+        <!-- Aquí el JS insertará el análisis automático -->
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-4 bg-light text-muted">
+    &copy; 2025 Universidad de Costa Rica - Proyecto de Monitoreo Climático
+  </footer>
+
+  <!-- ================= SCRIPTS ================= -->
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Librería AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Inicialización de animaciones -->
+  <script>
+    AOS.init();
+  </script>
+
+  <!-- JS que genera las gráficas -->
+  <script src="Conjuntos.js"></script>
+
+  <!-- Activador de animaciones al hacer scroll -->
+  <script>
+
+    // Observador para detectar cuándo las secciones aparecen en pantalla
+    const observer = new IntersectionObserver((entries) => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+          entry.target.classList.add("seccion-visible");
+        }
+
+      });
+
+    }, { threshold: 0.2 });
+
+    // Selecciona todas las secciones animadas
+    document.querySelectorAll('.seccion-estudio-blanco, .seccion-estudio-gris')
+      .forEach((section) => {
+
+        observer.observe(section);
+
+      });
+
+  </script>
+
+</body>
+
+</html>

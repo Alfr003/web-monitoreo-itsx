@@ -1,0 +1,276 @@
+/* =========================
+   CONTENEDORES GENERALES
+========================= */
+
+/* Tarjeta principal que contiene cada gráfica */
+.grafica-card {
+
+  /* Fondo azul oscuro semitransparente */
+  background: rgba(0, 0, 51, 0.55);
+
+  /* Bordes redondeados */
+  border-radius: 16px;
+
+  /* Espaciado interno */
+  padding: 20px;
+
+  /* Efecto vidrio (glassmorphism) */
+  backdrop-filter: blur(6px);
+
+  /* Compatibilidad con Safari */
+  -webkit-backdrop-filter: blur(6px);
+
+  /* Sombra exterior para efecto flotante */
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+
+  /* Animación suave cuando cambian propiedades */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto visual cuando el cursor pasa sobre la tarjeta */
+.grafica-card:hover {
+
+  /* La tarjeta se eleva ligeramente */
+  transform: translateY(-6px);
+
+  /* Aumenta la sombra para dar sensación de profundidad */
+  box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+}
+
+
+/* =========================
+   CABECERA DE CADA GRÁFICA
+========================= */
+
+/* Contenedor superior donde está el título y el valor actual */
+.grafica-header {
+
+  /* Activa Flexbox */
+  display: flex;
+
+  /* Distribuye el espacio entre título y badge */
+  justify-content: space-between;
+
+  /* Alinea elementos verticalmente */
+  align-items: center;
+
+  /* Espacio entre elementos */
+  gap: 14px;
+
+  /* Margen inferior para separar del gráfico */
+  margin-bottom: 12px;
+}
+
+/* Estilo del título de cada gráfica */
+.grafica-header h3 {
+
+  /* Elimina margen por defecto */
+  margin: 0;
+
+  /* Tamaño de fuente */
+  font-size: 1.2rem;
+
+  /* Peso fuerte de letra */
+  font-weight: 700;
+
+  /* Color blanco */
+  color: #ffffff;
+
+  /* Sombra del texto para mejorar contraste */
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+
+/* =========================
+   VALOR ACTUAL (BADGE)
+========================= */
+
+/* Contenedor que muestra el valor actual de temperatura o humedad */
+.valor-actual-wrap {
+
+  /* Flexbox para alinear número y unidad */
+  display: flex;
+
+  /* Alineación vertical */
+  align-items: baseline;
+
+  /* Espacio entre número y unidad */
+  gap: 6px;
+
+  /* Espaciado interno */
+  padding: 8px 14px;
+
+  /* Bordes completamente redondeados */
+  border-radius: 999px;
+
+  /* Fondo blanco semitransparente */
+  background: rgba(255,255,255,0.15);
+
+  /* Borde suave */
+  border: 1px solid rgba(255,255,255,0.25);
+
+  /* Efecto vidrio */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  /* Sombra interior */
+  box-shadow: inset 0 0 10px rgba(255,255,255,0.15);
+}
+
+/* Número principal del valor actual */
+.valor-actual-num {
+
+  /* Tamaño grande para destacar el valor */
+  font-size: 1.6rem;
+
+  /* Peso máximo de letra */
+  font-weight: 900;
+
+  /* Color blanco */
+  color: #ffffff;
+
+  /* Ancho mínimo para evitar que cambie el layout */
+  min-width: 48px;
+
+  /* Alinea números hacia la derecha */
+  text-align: right;
+}
+
+/* Unidad del valor (°C o %) */
+.valor-actual-unit {
+
+  /* Tamaño menor que el número */
+  font-size: 0.9rem;
+
+  /* Peso medio */
+  font-weight: 700;
+
+  /* Blanco con ligera transparencia */
+  color: rgba(255,255,255,0.85);
+}
+
+
+/* =========================
+   CUERPO DE GRÁFICA
+========================= */
+
+/* Contenedor donde se dibuja la gráfica */
+.grafica-body {
+
+  /* Fondo blanco para mejorar visibilidad de la gráfica */
+  background: rgba(255,255,255,0.95);
+
+  /* Bordes redondeados */
+  border-radius: 12px;
+
+  /* Espacio interno */
+  padding: 14px;
+
+  /* Sombra interior suave */
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.08);
+}
+
+/* Configuración del canvas de Chart.js */
+.grafica-body canvas {
+
+  /* Ocupa todo el ancho disponible */
+  width: 100% !important;
+
+  /* Altura fija del gráfico */
+  height: 260px !important;
+}
+
+
+/* =========================
+   RESUMEN INFERIOR
+========================= */
+
+/* Tarjeta donde se muestra el análisis automático */
+.resumen-card {
+
+  /* Fondo oscuro semitransparente */
+  background: rgba(0, 0, 51, 0.6);
+
+  /* Bordes redondeados */
+  border-radius: 16px;
+
+  /* Espaciado interno */
+  padding: 22px;
+
+  /* Efecto vidrio */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  /* Sombra exterior */
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+}
+
+/* Título del resumen */
+.resumen-card h3 {
+
+  /* Color blanco */
+  color: #ffffff;
+
+  /* Peso fuerte */
+  font-weight: 700;
+}
+
+/* Texto del análisis generado por JS */
+#analisis {
+
+  /* Tamaño de texto */
+  font-size: 1.05rem;
+
+  /* Peso medio */
+  font-weight: 500;
+
+  /* Blanco ligeramente transparente */
+  color: rgba(255,255,255,0.95);
+
+  /* Espaciado entre líneas */
+  line-height: 1.5;
+}
+
+
+/* =========================
+   ANIMACIONES SUAVES
+========================= */
+
+/* Aumenta la duración de animaciones AOS */
+[data-aos] {
+
+  /* Duración de animación */
+  transition-duration: 1s !important;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* Ajustes cuando la pantalla es menor a 992px */
+@media (max-width: 992px) {
+
+  /* Cambia layout del header de la gráfica */
+  .grafica-header {
+
+    /* Elementos en columna en lugar de fila */
+    flex-direction: column;
+
+    /* Alineación izquierda */
+    align-items: flex-start;
+  }
+
+  /* Ajusta posición del badge */
+  .valor-actual-wrap {
+
+    /* Se coloca al extremo derecho */
+    align-self: flex-end;
+  }
+
+  /* Reduce altura del gráfico en pantallas pequeñas */
+  .grafica-body canvas {
+
+    height: 220px !important;
+  }
+}

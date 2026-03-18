@@ -1,0 +1,66 @@
+{
+  "ultimas_mediciones": [
+    {
+      "hora": "15:42",
+      "temperatura": 24.8,
+      "humedad": 78
+    },
+    {
+      "hora": "15:41",
+      "temperatura": 24.6,
+      "humedad": 76
+    },
+    {
+      "hora": "15:40",
+      "temperatura": 24.7,
+      "humedad": 77
+    },
+    {
+      "hora": "15:39",
+      "temperatura": 24.5,
+      "humedad": 75
+    },
+    {
+      "hora": "15:38",
+      "temperatura": 24.4,
+      "humedad": 74
+    }
+  ],
+  "historico": {
+    "2025-09-25": [
+      { "hora": "02:00", "temperatura": 23.5, "humedad": 70 },
+      { "hora": "04:00", "temperatura": 23.9, "humedad": 72 },
+      { "hora": "06:00", "temperatura": 24.3, "humedad": 74 },
+      { "hora": "08:00", "temperatura": 25.1, "humedad": 76 },
+      { "hora": "10:00", "temperatura": 25.8, "humedad": 79 }
+    ],
+    "2025-09-26": [
+      { "hora": "02:00", "temperatura": 23.6, "humedad": 69 },
+      { "hora": "04:00", "temperatura": 24.0, "humedad": 71 },
+      { "hora": "06:00", "temperatura": 24.4, "humedad": 73 },
+      { "hora": "08:00", "temperatura": 25.2, "humedad": 75 },
+      { "hora": "10:00", "temperatura": 25.9, "humedad": 77 }
+    ],
+    "2025-09-27": [
+      { "hora": "02:00", "temperatura": 23.7, "humedad": 68 },
+      { "hora": "04:00", "temperatura": 24.1, "humedad": 70 },
+      { "hora": "06:00", "temperatura": 24.5, "humedad": 72 },
+      { "hora": "08:00", "temperatura": 25.3, "humedad": 74 },
+      { "hora": "10:00", "temperatura": 26.0, "humedad": 76 }
+    ],
+    "2025-09-28": [
+      { "hora": "02:00", "temperatura": 23.8, "humedad": 67 },
+      { "hora": "04:00", "temperatura": 24.2, "humedad": 69 },
+      { "hora": "06:00", "temperatura": 24.6, "humedad": 71 },
+      { "hora": "08:00", "temperatura": 25.4, "humedad": 73 },
+      { "hora": "10:00", "temperatura": 26.1, "humedad": 75 }
+    ],
+    "2025-09-29": [
+      { "hora": "02:00", "temperatura": 23.9, "humedad": 66 },
+      { "hora": "04:00", "temperatura": 24.3, "humedad": 68 },
+      { "hora": "06:00", "temperatura": 24.7, "humedad": 70 },
+      { "hora": "08:00", "temperatura": 25.5, "humedad": 72 },
+      { "hora": "10:00", "temperatura": 26.2, "humedad": 74 }
+    ]
+  }
+}

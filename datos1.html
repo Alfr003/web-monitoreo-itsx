@@ -1,0 +1,282 @@
+<!DOCTYPE html> <!-- Declara que el documento está escrito en HTML5 -->
+
+<html lang="es"> <!-- Inicio del documento HTML y define que el idioma principal es español -->
+
+<head> <!-- Cabecera del documento; aquí van metadatos, hojas de estilo y scripts iniciales -->
+  <meta charset="UTF-8" /> <!-- Define la codificación de caracteres en UTF-8 para soportar acentos, eñes y caracteres especiales -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Hace que la página se adapte correctamente a pantallas móviles y tablets -->
+  <title>Datos 1 - Monitoreo Climático</title> <!-- Título que aparece en la pestaña del navegador -->
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css" /> <!-- Hoja de estilos general del sitio -->
+  <link rel="stylesheet" href="datos1.css" /> <!-- Hoja de estilos específica para la página datos1 -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" /> <!-- Librería de animaciones AOS para efectos al hacer scroll -->
+
+  <!-- Bootstrap y Leaflet -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" /> <!-- Bootstrap para estilos responsivos y componentes ya diseñados -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" /> <!-- Leaflet CSS para estilizar el mapa interactivo -->
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Librería para construir gráficas dinámicas -->
+
+  <!-- Fondo general -->
+  <style>
+    body {
+      background: url("fondo_tabla.jpg") no-repeat center center fixed; /* Coloca una imagen de fondo centrada, sin repetirse y fija al hacer scroll */
+      background-size: cover; /* Hace que la imagen cubra toda el área visible del fondo */
+      background-attachment: fixed; /* Mantiene el fondo fijo mientras el contenido se desplaza */
+    }
+
+    .seccion-tabla-historica {
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(0, 102, 204, 0.8)); /* Degradado vertical de blanco a azul semitransparente */
+      background-blend-mode: overlay; /* Mezcla el fondo con el degradado para dar un efecto visual */
+      padding: 40px 20px; /* Espaciado interno de 40px arriba/abajo y 20px a los lados */
+      border-radius: 12px; /* Redondea las esquinas del contenedor */
+      margin-top: 30px; /* Deja un espacio superior con respecto al bloque anterior */
+    }
+
+    #tablaHistorica {
+      background-color: transparent; /* Hace el fondo de la tabla transparente */
+      border-radius: 10px; /* Bordes redondeados para la tabla */
+      overflow: hidden; /* Oculta cualquier contenido que sobresalga del borde redondeado */
+      width: 100%; /* La tabla ocupa todo el ancho del contenedor */
+    }
+
+    /* ---------- Contenedores tipo tarjetas difuminadas ---------- */
+    .seccion-estudio-blanco,
+    .seccion-estudio-gris {
+      background-color: rgba(0, 0, 51, 0.5); /* Fondo azul oscuro con transparencia */
+      color: white; /* Texto blanco sobre el fondo oscuro */
+      padding: 30px; /* Espaciado interno general */
+      border-radius: 12px; /* Bordes redondeados */
+      margin: 20px auto; /* Margen vertical de 20px y centrado horizontal */
+      width: 90%; /* El bloque ocupa el 90% del ancho disponible */
+      backdrop-filter: blur(3px); /* Aplica un desenfoque al fondo detrás del contenedor */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Agrega una sombra suave para efecto flotante */
+      opacity: 0; /* El bloque inicia invisible para animarlo luego */
+      transform: translateY(40px); /* El bloque inicia desplazado 40px hacia abajo */
+      transition: all 1s ease; /* Aplica transición suave a todos los cambios visuales */
+    }
+
+    .seccion-visible {
+      opacity: 1 !important; /* Cuando se active esta clase, la sección se vuelve visible */
+      transform: translateY(0px) !important; /* La sección vuelve a su posición original */
+    }
+
+    /* Títulos */
+    h2, h3 {
+      color: white; /* Hace blancos todos los títulos h2 y h3 */
+    }
+  </style>
+</head> <!-- Fin de la cabecera -->
+
+<body> <!-- Inicio del cuerpo visible de la página -->
+  <!-- Topbar -->
+  <div class="topbar d-flex justify-content-between align-items-center px-4">
+    <!-- 
+      topbar: clase personalizada para la barra superior
+      d-flex: activa Flexbox
+      justify-content-between: separa elementos a izquierda y derecha
+      align-items-center: centra verticalmente
+      px-4: padding horizontal con Bootstrap
+    -->
+
+    <div>
+      <img src="logo_ucr.png" height="40" alt="Logo UCR" />
+      <!-- Muestra el logo principal de la UCR con altura fija de 40px -->
+    </div>
+
+    <div class="text-end">
+      <!-- Contenedor de enlaces alineado al extremo derecho -->
+      <a href="index.html">Inicio</a> <!-- Enlace a la página principal -->
+      <a href="#">EN</a> <!-- Enlace para posible versión en inglés -->
+      <a href="#">Accesibilidad</a> <!-- Enlace relacionado con accesibilidad -->
+      <a href="#">Contacto</a> <!-- Enlace de contacto -->
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm sticky-top bg-white">
+    <!-- 
+      navbar: componente de navegación Bootstrap
+      navbar-expand-lg: menú completo en pantallas grandes y colapsable en pantallas chicas
+      navbar-light: estilo claro
+      shadow-sm: sombra ligera
+      sticky-top: se mantiene pegada arriba al hacer scroll
+      bg-white: fondo blanco
+    -->
+
+    <div class="container"> <!-- Contenedor centrado Bootstrap -->
+      <a class="navbar-brand" href="index.html">Monitoreo Climático</a> <!-- Nombre del sitio -->
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <!-- Botón hamburguesa para colapsar el menú en pantallas pequeñas -->
+        <span class="navbar-toggler-icon"></span> <!-- Icono visual del botón -->
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Contenedor colapsable del menú -->
+        <ul class="navbar-nav ms-auto">
+          <!-- Menú de navegación alineado a la derecha -->
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li> <!-- Enlace a inicio -->
+          <li class="nav-item"><a class="nav-link active" href="datos1.html">Datos 1</a></li> <!-- Enlace activo a esta página -->
+          <li class="nav-item"><a class="nav-link" href="conjuntos.html">Gráficas</a></li> <!-- Enlace a gráficas -->
+          <li class="nav-item"><a class="nav-link" href="historicos.html">Historicos</a></li> <!-- Enlace a históricos -->
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li> <!-- Enlace a contacto -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Encabezado -->
+  <header class="hero-header text-center">
+    <!-- Contenedor del encabezado visual principal -->
+    <img src="encabezado_datos1.jpg" alt="Encabezado datos1" class="img-fluid" />
+    <!-- Imagen tipo banner para la página de datos1 -->
+  </header>
+
+  <!-- Introducción -->
+  <section class="seccion-estudio-blanco py-5">
+    <!-- 
+      Bloque introductorio con efecto de tarjeta
+      py-5: padding vertical Bootstrap
+    -->
+    <div class="container">
+      <h2 class="titulo-estudio text-center mb-4">Estación de Monitoreo Climático</h2>
+      <!-- Título principal de la sección -->
+      <p class="texto-estudio">
+        <!-- Texto descriptivo del propósito de la estación -->
+        Esta estación recoge datos en tiempo real sobre la temperatura y la humedad relativa del Cerro Montserrat.
+        La información es recolectada cada hora y permite estudiar patrones climáticos que afectan la biodiversidad del área protegida.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mapa y tabla de datos -->
+  <section class="seccion-estudio-gris py-5">
+    <!-- Sección que combina mapa y tabla -->
+    <div class="container">
+      <div class="row">
+        <!-- Fila Bootstrap para dividir en columnas -->
+
+        <!-- Mapa -->
+        <div class="col-md-6">
+          <!-- Columna izquierda con el mapa -->
+          <div class="mapa-container">
+            <h3 class="text-center mb-3">Mapa Interactivo de Sensores</h3> <!-- Título del mapa -->
+            <div id="mapaSensor" style="height: 400px; border-radius: 10px;"></div>
+            <!-- Contenedor donde Leaflet insertará el mapa -->
+          </div>
+        </div>
+
+        <!-- Tabla de datos -->
+        <div class="col-md-6">
+          <!-- Columna derecha con tabla en tiempo real -->
+          <h3 class="text-center mb-3">Datos por hora (últimas mediciones)</h3> <!-- Título de tabla -->
+          <div class="table-responsive">
+            <!-- Hace la tabla desplazable horizontalmente si es necesario -->
+            <table class="table table-striped table-bordered text-white" id="tablaDatos">
+              <!-- 
+                table: estilo base Bootstrap
+                table-striped: filas alternadas
+                table-bordered: bordes visibles
+                text-white: texto blanco
+                id="tablaDatos": identificador para llenado dinámico desde JS
+              -->
+              <thead class="table-primary">
+                <!-- Encabezado con color primario Bootstrap -->
+                <tr>
+                  <th>Hora</th> <!-- Columna de hora -->
+                  <th>Temperatura</th> <!-- Columna de temperatura -->
+                  <th>Humedad</th> <!-- Columna de humedad -->
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Llenado dinámico desde JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Historial tipo AQICN con degradado -->
+  <section class="seccion-tabla-historica" id="tabla-container">
+    <!-- Sección de historial tipo tabla comparativa -->
+    <div class="container">
+      <h3 class="text-center mb-4">Historial de Datos (últimos 5 días)</h3> <!-- Título de la sección -->
+      <div class="table-responsive" data-aos="fade-up">
+        <!-- Tabla responsiva con animación de entrada -->
+        <table class="table table-bordered text-center" id="tablaHistorica">
+          <!-- Tabla principal del historial -->
+          <thead class="table-warning">
+            <!-- Encabezado color amarillo Bootstrap -->
+            <tr>
+              <th>Hora</th> <!-- Columna de hora -->
+              <th>Vie. 5</th> <!-- Día 1 -->
+              <th>Sáb. 6</th> <!-- Día 2 -->
+              <th>Dom. 7</th> <!-- Día 3 -->
+              <th>Lun. 8</th> <!-- Día 4 -->
+              <th>Mar. 9</th> <!-- Día 5 -->
+              <th>Valores Recomendados</th> <!-- Columna extra con referencia -->
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Se llenará dinámicamente desde JS -->
+          </tbody>
+        </table>
+      </div>
+      <p class="text-muted small mt-2">
+        <!-- Texto explicativo de cómo interpretar la tabla -->
+        *Cada celda muestra temperatura (izquierda, en rojo) y humedad (derecha, en azul) como barras proporcionales. Incluye tooltip con valores exactos. La última columna indica los valores recomendados.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-4 bg-light text-muted">
+    <!-- Pie de página -->
+    &copy; 2025 Universidad de Costa Rica - Proyecto de Monitoreo Climático
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Script de Bootstrap para habilitar menú responsive y componentes interactivos -->
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Script de Leaflet para crear y controlar el mapa interactivo -->
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Script de AOS para animaciones al hacer scroll -->
+
+  <script>AOS.init();</script>
+  <!-- Inicializa AOS con su configuración por defecto -->
+
+  <script src="datos1.js"></script>
+  <!-- Archivo JavaScript principal de esta página, donde seguramente llenas mapa, tablas y datos -->
+
+  <!-- Activador de animaciones al hacer scroll -->
+  <script>
+    // Crea un observador para detectar cuándo una sección entra al área visible de la pantalla
+    const observer = new IntersectionObserver((entries) => {
+      // Recorre todas las entradas observadas
+      entries.forEach(entry => {
+        // Si la sección está intersectando con el viewport
+        if (entry.isIntersecting) {
+          // Le agrega la clase seccion-visible para activar la animación CSS
+          entry.target.classList.add("seccion-visible");
+        }
+      });
+    }, {
+      threshold: 0.2 // La animación se activa cuando al menos el 20% del elemento es visible
+    });
+
+    // Selecciona todas las secciones que deben animarse y las registra en el observador
+    document.querySelectorAll('.seccion-estudio-blanco, .seccion-estudio-gris').forEach((section) => {
+      observer.observe(section); // Empieza a observar cada sección
+    });
+  </script>
+</body> <!-- Fin del cuerpo -->
+
+</html> <!-- Fin del documento HTML -->

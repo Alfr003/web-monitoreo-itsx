@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<!-- Declara que el documento utiliza HTML5 -->
+
+<html lang="es">
+<!-- Inicio del documento HTML y define que el idioma principal es español -->
+
+<head>
+  <!-- Cabecera del documento: aquí van metadatos, estilos y configuraciones generales -->
+
+  <meta charset="UTF-8" />
+  <!-- Define la codificación UTF-8 para soportar acentos, eñes y caracteres especiales -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Hace que la página sea responsive en celulares y tablets -->
+
+  <title>Históricos - Monitoreo Climático</title>
+  <!-- Título que aparece en la pestaña del navegador -->
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Hoja de estilos global del sitio -->
+
+  <link rel="stylesheet" href="historicos.css" />
+  <!-- Hoja de estilos específica para la página de históricos -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap para estilos responsivos y componentes visuales -->
+</head>
+
+<body>
+  <!-- Inicio del cuerpo visible de la página -->
+
+  <!-- Topbar -->
+  <div class="topbar d-flex justify-content-between align-items-center px-4">
+    <!-- 
+      topbar: barra superior personalizada
+      d-flex: activa Flexbox
+      justify-content-between: separa elementos izquierda/derecha
+      align-items-center: centra verticalmente
+      px-4: padding horizontal con Bootstrap
+    -->
+
+    <div>
+      <img src="logo_ucr.png" height="40" alt="Logo UCR" />
+      <!-- Logo institucional de la UCR con altura fija de 40px -->
+    </div>
+
+    <div class="text-end">
+      <!-- Contenedor de enlaces alineado a la derecha -->
+      <a href="index.html">Inicio</a>
+      <!-- Enlace a la página principal -->
+
+      <a href="#">EN</a>
+      <!-- Posible enlace para versión en inglés -->
+
+      <a href="#">Accesibilidad</a>
+      <!-- Enlace relacionado con accesibilidad -->
+
+      <a href="contacto.html">Contacto</a>
+      <!-- Enlace a la página de contacto -->
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm sticky-top bg-white">
+    <!-- 
+      navbar: barra de navegación Bootstrap
+      navbar-expand-lg: expandida en pantallas grandes
+      navbar-light: estilo claro
+      shadow-sm: sombra ligera
+      sticky-top: queda fija arriba al hacer scroll
+      bg-white: fondo blanco
+    -->
+
+    <div class="container">
+      <!-- Contenedor centrado y con ancho limitado -->
+
+      <a class="navbar-brand" href="index.html">Monitoreo Climático</a>
+      <!-- Marca o nombre del sistema -->
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <!-- Botón hamburguesa para pantallas pequeñas -->
+        <span class="navbar-toggler-icon"></span>
+        <!-- Icono del botón -->
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Contenedor colapsable del menú -->
+
+        <ul class="navbar-nav ms-auto">
+          <!-- Menú alineado a la derecha -->
+
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <!-- Enlace a inicio -->
+
+          <li class="nav-item"><a class="nav-link" href="datos1.html">Datos 1</a></li>
+          <!-- Enlace a página de datos en tiempo real -->
+
+          <li class="nav-item"><a class="nav-link" href="conjuntos.html">Gráficas</a></li>
+          <!-- Enlace a la página de gráficas -->
+
+          <li class="nav-item"><a class="nav-link active" href="historicos.html">Históricos</a></li>
+          <!-- Enlace activo de esta página -->
+
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          <!-- Enlace a contacto -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Encabezado -->
+  <header class="hero-header text-center">
+    <!-- Contenedor del banner superior -->
+    <img src="encabezado_database.jpg" alt="Encabezado históricos" class="img-fluid" />
+    <!-- Imagen principal de encabezado, responsive -->
+  </header>
+
+  <!-- Intro -->
+  <section class="seccion-estudio-blanco py-5 seccion-visible">
+    <!-- 
+      seccion-estudio-blanco: estilo tipo tarjeta difuminada
+      py-5: padding vertical
+      seccion-visible: hace visible la sección desde el inicio
+    -->
+
+    <div class="container">
+      <!-- Contenedor de texto -->
+
+      <h2 class="titulo-estudio text-center mb-3">Base de datos histórica (Z1)</h2>
+      <!-- Título principal de la sección -->
+
+      <p class="texto-estudio mb-0">
+        <!-- Texto introductorio -->
+        Aquí se almacena el historial completo de lecturas: fecha, hora, temperatura y humedad.
+        Puedes filtrar por mes, día y hora, y descargar la información en Excel.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filtros + Descarga + Tabla -->
+  <section class="seccion-estudio-gris py-5 seccion-visible">
+    <!-- Sección principal donde van filtros, botones de exportación y tabla -->
+
+    <div class="container">
+
+      <div class="d-flex flex-wrap gap-3 align-items-end justify-content-between mb-3">
+        <!-- 
+          d-flex: activa Flexbox
+          flex-wrap: permite que los elementos bajen de línea si no caben
+          gap-3: espacio entre bloques
+          align-items-end: alinea abajo
+          justify-content-between: separa filtros y descargas
+          mb-3: margen inferior
+        -->
+
+        <!-- Filtros -->
+        <div class="filtros-glass">
+          <!-- Contenedor visual de filtros -->
+
+          <div class="row g-2 align-items-end">
+            <!-- Fila Bootstrap para acomodar filtros -->
+
+            <div class="col-12 col-md-auto">
+              <!-- Filtro de mes -->
+              <label class="form-label text-white fw-semibold mb-1">Mes</label>
+              <select id="filtroMes" class="form-select">
+                <option value="">Mes (todos)</option>
+                <!-- JS llenará más opciones -->
+              </select>
+            </div>
+
+            <div class="col-12 col-md-auto">
+              <!-- Filtro de día -->
+              <label class="form-label text-white fw-semibold mb-1">Día</label>
+              <select id="filtroDia" class="form-select" disabled>
+                <option value="">Día (todos)</option>
+                <!-- Deshabilitado al inicio hasta seleccionar mes -->
+              </select>
+            </div>
+
+            <div class="col-12 col-md-auto">
+              <!-- Filtro de hora -->
+              <label class="form-label text-white fw-semibold mb-1">Hora (HH:MM)</label>
+              <input type="time" id="filtroHora" class="form-control" step="60" />
+              <!-- step="60" hace que avance minuto por minuto -->
+            </div>
+
+            <div class="col-12 col-md-auto">
+              <!-- Botón aplicar filtros -->
+              <button id="btnAplicar" class="btn btn-primary w-100">Aplicar</button>
+            </div>
+
+            <div class="col-12 col-md-auto">
+              <!-- Botón limpiar filtros -->
+              <button id="btnLimpiar" class="btn btn-outline-light w-100">Limpiar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Descargas -->
+        <div class="descargas-glass">
+          <!-- Contenedor visual para botones de descarga -->
+
+          <div class="d-flex flex-wrap gap-2 justify-content-end">
+            <!-- Botón para descargar todo el historial -->
+            <button id="btnExcelTodo" class="btn btn-success">Excel TODO</button>
+
+            <!-- Botón para descargar solo el mes seleccionado -->
+            <button id="btnExcelMes" class="btn btn-success" disabled>Excel MES</button>
+            <!-- Inicia deshabilitado hasta seleccionar un mes -->
+          </div>
+
+          <div class="text-white-50 small mt-1 text-end">
+            <!-- Texto explicativo -->
+            *Descarga CSV (Excel compatible).
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Estado -->
+      <div id="estado" class="text-white-50 small mb-2"></div>
+      <!-- Aquí JS puede escribir mensajes como:
+           "Cargando...", "No hay datos", "Resultados encontrados", etc. -->
+
+      <!-- Tabla -->
+      <div class="table-responsive glass-table">
+        <!-- Contenedor responsive para que la tabla no se rompa en pantallas pequeñas -->
+
+        <table id="tablaHistoricos" class="table table-striped table-bordered align-middle mb-0">
+          <!-- 
+            id="tablaHistoricos": identificador principal de la tabla
+            table: estilo base Bootstrap
+            table-striped: filas alternadas
+            table-bordered: bordes visibles
+            align-middle: centra verticalmente el contenido
+            mb-0: sin margen inferior
+          -->
+
+          <thead class="table-primary">
+            <!-- Encabezado azul -->
+            <tr>
+              <th>Fecha</th>
+              <!-- Columna fecha -->
+
+              <th>Hora</th>
+              <!-- Columna hora -->
+
+              <th>Temperatura (°C)</th>
+              <!-- Columna temperatura -->
+
+              <th>Humedad (%)</th>
+              <!-- Columna humedad -->
+
+              <th>Zona</th>
+              <!-- Columna zona -->
+            </tr>
+          </thead>
+
+          <tbody id="tablaBody">
+            <!-- JS llena -->
+            <!-- Aquí JavaScript insertará dinámicamente las filas -->
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-4 bg-light text-muted">
+    <!-- Pie de página -->
+    &copy; 2025 Universidad de Costa Rica - Proyecto de Monitoreo Climático
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Script de Bootstrap para menú responsive y otros componentes -->
+
+  <!-- IMPORTANTE: este archivo debe ser SOLO JS -->
+  <script src="historicos.js?v=2"></script>
+  <!-- 
+    Carga tu archivo JavaScript de históricos
+    ?v=2 sirve para evitar caché del navegador y forzar versión nueva
+  -->
+</body>
+</html>
